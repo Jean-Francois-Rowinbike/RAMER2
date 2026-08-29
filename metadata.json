@@ -1,0 +1,8 @@
+{
+  "name": "Rowingbike with Jean-François",
+  "description": "A modern presentation and story of the rowingbike: history from 1898, Derk Thijs models, community, health benefits, and commuter experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
