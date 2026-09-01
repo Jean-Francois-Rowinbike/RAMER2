@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14B8A6" />
+      <stop offset="50%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#0F766E" />
+    </linearGradient>
+    <linearGradient id="textTealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#086f68" />
+    </linearGradient>
+    <linearGradient id="charcoalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D3748" />
+      <stop offset="100%" stop-color="#1A202C" />
+    </linearGradient>
+    <filter id="subtleDrop" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <style>
+    .font-brand {
+      font-family: 'Outfit', 'Plus Jakarta Sans', 'Montserrat', -apple-system, sans-serif;
+      font-weight: 900;
+    }
+    .font-tagline {
+      font-family: 'Outfit', 'Plus Jakarta Sans', 'Montserrat', -apple-system, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.38em;
+    }
+  </style>
+
+  <!-- Graphic Emblem Section -->
+  <g transform="translate(40, 20)">
+    
+    <!-- 1. Head of Rower -->
+    <circle cx="560" cy="72" r="28" fill="url(#tealGrad)" />
+
+    <!-- 2. Front Wheel (Dark Slate Rim + Teal Fork + Center Hub) -->
+    <!-- Front Wheel Outer Tire/Rim -->
+    <circle cx="718" cy="285" r="62" fill="none" stroke="#2D3748" stroke-width="15" />
+    <!-- Front Wheel Center Axle / Hub -->
+    <circle cx="718" cy="285" r="14" fill="#0D9488" />
+
+    <!-- 3. Bike Frame Structure (Teal Z-Shape Frame & Fork) -->
+    <!-- Handlebar Stem & Fork -->
+    <path d="M 648 180 L 685 180 M 670 180 L 718 285" 
+          fill="none" stroke="#0D9488" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- Handlebar Grip -->
+    <path d="M 635 188 L 655 172" fill="none" stroke="#2D3748" stroke-width="11" stroke-linecap="round" />
+    
+    <!-- Teal Z-Frame Truss -->
+    <path d="M 560 226 L 680 226 L 565 316 L 655 316" 
+          fill="none" stroke="#0D9488" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- 4. Rower Body & Sliding Track (Continuous Stylized Streamline) -->
+    <!-- Teal Outer Flowing Ribbon (Back of Rower & Underside of Track) -->
+    <path d="M 545 110 
+             C 590 120, 595 160, 575 200 
+             C 555 240, 500 270, 440 295
+             C 380 320, 310 320, 290 315
+             C 275 310, 280 295, 305 285
+             C 350 268, 410 240, 455 205
+             C 490 175, 520 125, 545 110 Z" 
+          fill="url(#tealGrad)" />
+
+    <!-- Dark Charcoal Inner Contour & Track Frame -->
+    <path d="M 530 135
+             C 558 155, 550 188, 525 218
+             C 490 255, 430 282, 360 298
+             C 310 308, 300 300, 315 292
+             C 365 268, 435 235, 470 195
+             C 500 162, 515 142, 530 135 Z" 
+          fill="#2D3748" />
+
+    <!-- Monorail / Foot Stretcher Rail Guide -->
+    <path d="M 305 298 C 290 298, 285 315, 300 320 L 520 320 C 535 320, 540 305, 525 298 Z" 
+          fill="#2D3748" />
+
+    <!-- 5. Oar Lever Mechanism (Shaft, Blade, and Grip) -->
+    <!-- Oar Blade at Lower Left -->
+    <path d="M 190 270 
+             L 245 230 
+             C 255 224, 275 235, 268 250 
+             L 225 295 
+             C 215 305, 195 295, 190 270 Z" 
+          fill="#2D3748" />
+
+    <!-- Main Oar Lever Shaft (Extending to hands of rower) -->
+    <line x1="240" y1="245" x2="435" y2="148" stroke="#2D3748" stroke-width="9" stroke-linecap="round" />
+    
+    <!-- Lever Pivot / Hand Grip -->
+    <circle cx="435" cy="148" r="9" fill="#2D3748" />
+    <line x1="435" y1="148" x2="520" y2="128" stroke="#0D9488" stroke-width="7" stroke-linecap="round" />
+
+  </g>
+
+  <!-- Typography: ROWBIKE -->
+  <g transform="translate(500, 480)" text-anchor="middle">
+    <!-- Logotype Text -->
+    <text y="0" class="font-brand" font-size="124" letter-spacing="-0.02em">
+      <tspan fill="#2D3748">Row</tspan><tspan fill="url(#textTealGrad)">BIKE</tspan>
+    </text>
+    
+    <!-- Tagline: ROW. RIDE. REPEAT. -->
+    <text y="68" class="font-tagline" font-size="28" fill="#2D3748">
+      ROW. RIDE. REPEAT.
+    </text>
+  </g>
+</svg>

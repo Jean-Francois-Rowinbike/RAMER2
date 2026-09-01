@@ -32,21 +32,31 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo - Inspired by "Unique" logo in screenshot */}
+        {/* Brand Logo - ROWBIKE */}
         <a
           href="#"
-          className="flex items-center space-x-2.5 group"
+          className="flex items-center space-x-3.5 group"
           id="nav-logo-link"
         >
-          <div className="w-8 h-8 rounded-full bg-neutral-950 text-white flex items-center justify-center font-bold text-sm tracking-tighter group-hover:scale-105 transition-transform">
-            <span className="translate-y-[-0.5px]">R</span>
+          <div className="h-14 sm:h-18 flex items-center bg-white px-3 py-1.5 rounded-2xl border border-neutral-200 shadow-sm group-hover:border-teal-500/80 group-hover:shadow-md transition-all">
+            <img
+              src="./images/rowbike_logo.png"
+              alt="RowBIKE - ROW. RIDE. REPEAT."
+              className="h-12 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
           </div>
-          <div className="flex items-baseline space-x-2">
-            <span className="text-xl font-bold font-display tracking-tight text-neutral-950">
-              Rowingbike
-            </span>
-            <span className="hidden sm:inline-block text-[11px] font-medium text-neutral-400">
-              with Jean-François
+          <div>
+            <div className="flex items-baseline space-x-1.5">
+              <span className="text-lg sm:text-xl font-extrabold tracking-tight font-display text-neutral-950">
+                Row<span className="text-teal-600">BIKE</span>
+              </span>
+              <span className="hidden sm:inline-block text-[10px] uppercase tracking-widest font-bold text-neutral-400">
+                Est. 1898 &bull; 209
+              </span>
+            </div>
+            <span className="text-xs text-neutral-500 font-medium tracking-wide block leading-tight">
+              with Jean-François &middot; Row. Ride. Repeat.
             </span>
           </div>
         </a>

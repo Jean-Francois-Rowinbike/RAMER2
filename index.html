@@ -15,24 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-              display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
-            },
-            boxShadow: {
-              'card-modern': '0 10px 30px -10px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02)',
-              'phone-modern': '0 25px 50px -12px rgba(0, 0, 0, 0.35)',
-            }
-          }
-        }
-      }
-    </script>
+    <!-- Local Stylesheet compiled with Tailwind CSS -->
+    <link rel="stylesheet" href="./src/index.css" />
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -49,20 +33,30 @@
   <body class="bg-neutral-50 text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white min-h-screen flex flex-col">
 
     <!-- Floating Glassmorphic Header -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-neutral-200/80 transition-all">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-neutral-200/80 shadow-xs transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
         
         <!-- Logo / Identity -->
-        <a href="#" class="flex items-center space-x-3 group">
-          <div class="w-9 h-9 rounded-2xl bg-neutral-950 text-white flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
-            <i data-lucide="activity" class="w-5 h-5 text-white"></i>
+        <a href="#" class="flex items-center space-x-3.5 group" id="brand-nav-logo">
+          <div class="h-14 sm:h-18 flex items-center bg-white px-3 py-1.5 rounded-2xl border border-neutral-200 shadow-sm group-hover:border-teal-500/80 group-hover:shadow-md transition-all">
+            <img
+              src="./images/rowbike_logo.png"
+              alt="RowBIKE - ROW. RIDE. REPEAT."
+              class="h-12 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105"
+              referrerpolicy="no-referrer"
+            />
           </div>
           <div>
-            <span class="text-base sm:text-lg font-extrabold tracking-tight text-neutral-950 font-display block leading-none">
-              Rowingbike
-            </span>
-            <span class="text-[10px] text-neutral-500 font-medium tracking-wide">
-              with Jean-François &middot; Est. 1898
+            <div class="flex items-baseline space-x-1.5">
+              <span class="text-lg sm:text-xl font-extrabold tracking-tight font-display text-neutral-950">
+                Row<span class="text-teal-600">BIKE</span>
+              </span>
+              <span class="hidden sm:inline-block text-[10px] uppercase tracking-widest font-bold text-neutral-400">
+                Est. 1898 &bull; 209
+              </span>
+            </div>
+            <span class="text-xs text-neutral-500 font-medium tracking-wide block leading-tight">
+              with Jean-François &middot; Row. Ride. Repeat.
             </span>
           </div>
         </a>
@@ -140,11 +134,43 @@
       <section id="about" class="relative overflow-hidden pt-12 pb-20 md:py-24 bg-gradient-to-b from-white via-neutral-50/50 to-neutral-100/40 border-b border-neutral-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <!-- Top Badge Pill -->
-          <div class="flex justify-center md:justify-start mb-6">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-neutral-100 text-neutral-800 text-xs font-semibold border border-neutral-200/80 shadow-xs">
-              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Modern Engineering &middot; Since 1898</span>
+          <!-- Top Hero Brand Banner (Option 1) -->
+          <div class="mb-12 sm:mb-16 w-full">
+            <div class="relative overflow-hidden bg-white/95 rounded-3xl p-6 sm:p-8 md:p-10 border border-neutral-200/90 shadow-sm hover:shadow-md transition-all duration-300">
+              
+              <!-- Subtle Background Ambient Light -->
+              <div class="absolute -top-24 -right-24 w-72 h-72 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+              <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-neutral-900/5 rounded-full blur-3xl pointer-events-none"></div>
+
+              <!-- Main Full-Width Logo Display -->
+              <div class="relative z-10 flex items-center justify-center py-2 sm:py-4">
+                <img
+                  src="./images/rowbike_logo.png"
+                  alt="RowBIKE - ROW. RIDE. REPEAT."
+                  class="w-full max-w-4xl h-auto max-h-[340px] md:max-h-[380px] object-contain mx-auto transition-transform duration-300 hover:scale-[1.01]"
+                  referrerpolicy="no-referrer"
+                />
+              </div>
+
+              <!-- Footer Grounding Bar inside the Frame -->
+              <div class="relative z-10 mt-6 pt-5 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-2.5">
+                  <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                  <span class="text-xs font-extrabold uppercase tracking-widest text-neutral-900 font-display">RowBIKE 209 Official</span>
+                  <span class="text-neutral-300">&bull;</span>
+                  <span class="text-xs font-semibold text-neutral-500">Est. 1898</span>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                  <span class="px-3 py-1 rounded-full bg-neutral-50 text-[11px] font-semibold text-neutral-600 border border-neutral-200/70">
+                    Derk Thijs Engineering
+                  </span>
+                  <span class="px-3 py-1 rounded-full bg-teal-50 text-[11px] font-bold text-teal-800 border border-teal-200/60">
+                    ROW. RIDE. REPEAT.
+                  </span>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -256,7 +282,7 @@
             <div class="lg:col-span-6 space-y-8 text-center md:text-left">
               <div class="space-y-4">
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-neutral-950 leading-[1.1]">
-                  The Ultimate Full-Body Human Machine.
+                  RowBike With Jean-François
                 </h1>
                 <p class="text-lg sm:text-xl text-neutral-600 leading-relaxed max-w-xl mx-auto md:mx-0 font-normal">
                   Discover the rowingbike through history, the engineering of Derk Thijs, global community, and the daily commute story of Jean-François.
@@ -1111,14 +1137,26 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-10 border-b border-neutral-800">
           <div>
-            <div class="flex items-center space-x-2.5 mb-1.5">
-              <div class="w-6 h-6 rounded-lg bg-white text-neutral-950 flex items-center justify-center font-bold text-xs">
-                <i data-lucide="activity" class="w-3.5 h-3.5 text-neutral-950"></i>
+            <div class="flex items-center space-x-4 mb-3">
+              <div class="h-16 sm:h-20 w-auto flex items-center bg-white px-3 py-1.5 rounded-2xl border border-neutral-700 shadow-md">
+                <img
+                  src="./images/rowbike_logo.png"
+                  alt="RowBIKE - ROW. RIDE. REPEAT."
+                  class="h-14 sm:h-16 w-auto object-contain"
+                  referrerpolicy="no-referrer"
+                />
               </div>
-              <span class="text-xl font-extrabold font-display text-white">Rowingbike</span>
+              <div>
+                <span class="text-2xl font-extrabold font-display text-white tracking-tight leading-none block">
+                  Row<span class="text-teal-400">BIKE</span>
+                </span>
+                <span class="text-[10px] uppercase tracking-widest text-teal-300 font-bold block mt-1">
+                  ROW. RIDE. REPEAT.
+                </span>
+              </div>
             </div>
-            <p class="text-xs text-neutral-400">
-              Personal archive &amp; engineering overview with Jean-François &middot; Est. 1898
+            <p class="text-xs text-neutral-400 max-w-sm">
+              Personal archive &amp; engineering overview with Jean-François &middot; Est. 1898 &middot; Thijs 209
             </p>
           </div>
 
@@ -1214,6 +1252,12 @@
     <script>
       // Database of high-resolution images & captions
       const IMAGES_DATA = {
+        'rowbike-logo': {
+          src: './images/rowbike_logo.png',
+          alt: 'ROWBIKE Official Logo — Row. Ride. Repeat.',
+          caption: 'Emblème et logo officiel ROWBIKE : Ramer, Rouler, Répéter — L\'union de la biomécanique de l\'aviron et de l\'efficacité cycliste.',
+          tag: 'Logo Officiel'
+        },
         'jean-francois': {
           src: './images/user_jean_francois.jpeg',
           alt: 'Jean-François with rowingbike at Utrecht - Amsterdam signpost',

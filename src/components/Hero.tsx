@@ -44,6 +44,51 @@ export const Hero: React.FC<HeroProps> = ({ onImageClick }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* Top Hero Brand Banner (Option 1) */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 sm:mb-16 w-full"
+        >
+          <div className="relative overflow-hidden bg-white/95 rounded-3xl p-6 sm:p-8 md:p-10 border border-neutral-200/90 shadow-sm hover:shadow-md transition-all duration-300">
+            
+            {/* Subtle Background Ambient Light */}
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-neutral-900/5 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Main Full-Width Logo Display */}
+            <div className="relative z-10 flex items-center justify-center py-2 sm:py-4">
+              <img
+                src="./images/rowbike_logo.png"
+                alt="RowBIKE - ROW. RIDE. REPEAT."
+                className="w-full max-w-4xl h-auto max-h-[340px] md:max-h-[380px] object-contain mx-auto transition-transform duration-300 hover:scale-[1.01]"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+            {/* Footer Grounding Bar inside the Frame */}
+            <div className="relative z-10 mt-6 pt-5 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center space-x-2.5">
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <span className="text-xs font-extrabold uppercase tracking-widest text-neutral-900 font-display">RowBIKE 209 Official</span>
+                <span className="text-neutral-300">&bull;</span>
+                <span className="text-xs font-semibold text-neutral-500">Est. 1898</span>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-neutral-50 text-[11px] font-semibold text-neutral-600 border border-neutral-200/70">
+                  Derk Thijs Engineering
+                </span>
+                <span className="px-3 py-1 rounded-full bg-teal-50 text-[11px] font-bold text-teal-800 border border-teal-200/60">
+                  ROW. RIDE. REPEAT.
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </motion.div>
+
         {/* Main Grid: Left Overlapping Device Frames | Right Modern Copy & CTAs */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -173,20 +218,9 @@ export const Hero: React.FC<HeroProps> = ({ onImageClick }) => {
               transition={{ duration: 0.5 }}
               className="space-y-4"
             >
-              {/* Modern Uppercase Eyebrow / Kicker from Screenshot (CONVENIENT INTERACTION style) */}
-              <div className="flex items-center space-x-2">
-                <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-neutral-400">
-                  Full-Body Human Propulsion
-                </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
-                <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-neutral-500">
-                  Est. 1898
-                </span>
-              </div>
-
               {/* Bold High-Impact Modern Title (Modern App style from screenshot) */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-neutral-950 leading-[1.08]">
-                Rowingbike 209
+                RowBike With Jean-François
               </h1>
 
               {/* Clean, crystal-clear paragraph matching the modern app narrative style */}

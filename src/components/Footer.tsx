@@ -12,14 +12,26 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-10 border-b border-neutral-800">
           <div>
-            <div className="flex items-center space-x-2.5 mb-1.5">
-              <div className="w-6 h-6 rounded-lg bg-white text-neutral-950 flex items-center justify-center font-bold text-xs">
-                <Activity className="w-3.5 h-3.5" />
+            <div className="flex items-center space-x-4 mb-3">
+              <div className="h-16 sm:h-20 w-auto flex items-center bg-white px-3 py-1.5 rounded-2xl border border-neutral-700 shadow-md">
+                <img
+                  src="./images/rowbike_logo.png"
+                  alt="RowBIKE - ROW. RIDE. REPEAT."
+                  className="h-14 sm:h-16 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
-              <span className="text-xl font-extrabold font-display text-white">Rowingbike</span>
+              <div>
+                <span className="text-2xl font-extrabold font-display text-white tracking-tight leading-none block">
+                  Row<span className="text-teal-400">BIKE</span>
+                </span>
+                <span className="text-[10px] uppercase tracking-widest text-teal-300 font-bold block mt-1">
+                  ROW. RIDE. REPEAT.
+                </span>
+              </div>
             </div>
-            <p className="text-xs text-neutral-400">
-              Personal archive &amp; engineering overview with Jean-François &middot; Est. 1898
+            <p className="text-xs text-neutral-400 max-w-sm">
+              Personal archive &amp; engineering overview with Jean-François &middot; Est. 1898 &middot; Thijs 209
             </p>
           </div>
 
