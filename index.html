@@ -1,0 +1,372 @@
+<!DOCTYPE html><html class="dark scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RowingBike - A Different Way to Move</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#4a4949",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#333539",
+                        "surface-container-lowest": "#0c0e12",
+                        "on-tertiary": "#303032",
+                        "on-surface-variant": "#bac9cc",
+                        "on-secondary": "#313030",
+                        "surface-container-low": "#1a1c1f",
+                        "on-error": "#690005",
+                        "on-primary-fixed-variant": "#004f58",
+                        "surface-bright": "#37393d",
+                        "surface": "#111317",
+                        "primary-fixed-dim": "#00daf3",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-container-highest": "#333539",
+                        "inverse-surface": "#e2e2e7",
+                        "error-container": "#93000a",
+                        "on-surface": "#e2e2e7",
+                        "on-tertiary-container": "#59595b",
+                        "on-primary-container": "#00626e",
+                        "primary": "#c3f5ff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#474649",
+                        "on-primary": "#00363d",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#2e3034",
+                        "on-primary-fixed": "#001f24",
+                        "tertiary-container": "#d2d0d2",
+                        "primary-container": "#00e5ff",
+                        "outline": "#849396",
+                        "surface-tint": "#00daf3",
+                        "outline-variant": "#3b494c",
+                        "background": "#111317",
+                        "surface-container": "#1e2023",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#c8c6c5",
+                        "on-background": "#e2e2e7",
+                        "surface-container-high": "#282a2e",
+                        "tertiary": "#efecee",
+                        "surface-dim": "#111317",
+                        "tertiary-fixed-dim": "#c8c6c8",
+                        "on-tertiary-fixed": "#1b1b1d",
+                        "primary-fixed": "#9cf0ff",
+                        "inverse-primary": "#006875",
+                        "tertiary-fixed": "#e4e2e4",
+                        "on-secondary-container": "#bab8b7"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px"
+                    },
+                    fontFamily: {
+                        "label-technical": ["JetBrains Mono"],
+                        "title-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    fontSize: {
+                        "label-technical": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "title-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
+                        "headline-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "display-lg": ["72px", { lineHeight: "80px", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "40px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .bg-glass {
+                @apply bg-surface/80 backdrop-blur-md;
+            }
+            .border-subtle {
+                @apply border border-outline-variant/10;
+            }
+            .metallic-edge {
+                @apply border-t border-white/10;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-glass border-b border-outline-variant/10 transition-transform duration-300">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex justify-between items-center h-20">
+<a class="font-display-lg text-title-md tracking-tighter text-on-surface" href="#">ROWINGBIKE</a>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#story">THE STORY</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#209">THE 209</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#experience">THE EXPERIENCE</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#community">COMMUNITY</a>
+<a class="font-title-md text-title-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#contact">CONTACT</a>
+</div>
+<a class="hidden md:inline-flex px-6 py-3 bg-white text-black font-label-technical text-label-technical hover:bg-primary transition-colors duration-300 rounded active:scale-95" href="#contact">COME AND SEE IT</a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover object-center opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLDehuu0-eKMqkzVxiNeyiLdG7sm1yeEwVH_eFrUajYwub8p5bwh3y79eHrOa2wa2qZlhpzkVbqkaNOyKZhFIWAKYJAASxTUyuKKGOTt6lVWmBT-Wv5s-L5PAA2srgrB7dJQ8NwaM4gc5RhchG8LKvnneFeBTbW1bZdn4CjOB4ZZ2KPo2tw8v3XVgjYb0HCEJAi-7SZnqmJ5xPBfknceZdaWEissxwndcR60h4_TOILHeeiSWGaep1XYgY6c5VTUOJItA">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/50"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-unit">ROWINGBIKE</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-gutter">A bicycle. A rowing machine. A completely different way to move.</p>
+<div class="flex flex-col sm:flex-row gap-4 mt-8">
+<a class="px-8 py-4 bg-white text-black font-label-technical text-label-technical hover:bg-primary transition-colors duration-300 rounded text-center" href="#209">DISCOVER THE ROWINGBIKE</a>
+<a class="px-8 py-4 border border-outline text-on-surface font-label-technical text-label-technical hover:border-primary hover:text-primary transition-colors duration-300 rounded text-center" href="#contact">COME AND SEE IT</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_downward</span>
+</div>
+</header>
+<!-- The Story -->
+<section class="py-24 md:py-32 relative" id="story">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-16">A CONCEPT WITH A LONG HISTORY</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="relative group">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjP22eHxwbMROIGi2vVV2VZwQBhtcSuUkTAacrdiKkpncqAdBE0wpVuR-pWjYP3l-wViaeBfUprM8ov_zjoy-BMiEEIkugEk2Oc-cnPWJ-B-bIqawHbdG6q6SjBVim4ofTBbljxF1m6rb7iIISj511-h4k9J-swD7ObQ43pgIExlRegghsw3CzXjiFV5V06VcbfWTgf0Zf87Vl_s7OryH_zXaQ1pzt7ZTy-OpPn1mR_kuzMU4lUqPAqvXqbp0uQDgMubE" alt="1898 RowingBike Patent" class="w-full h-auto rounded grayscale opacity-70 group-hover:opacity-100 transition-opacity duration-500 border border-outline-variant">
+<div class="absolute bottom-4 left-4 bg-surface-container/90 px-3 py-1 border border-outline-variant rounded">
+<span class="font-label-technical text-label-technical text-on-surface">1898 PATENT</span>
+</div>
+</div>
+<div class="relative group mt-8 md:mt-0 z-10"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2q718b4CqWvR-yeAjkdEgIr8vfGHpph5O6-GWlo2ee3ORSx2u-8dGfyUM1jVNkv6grR4XFnxfauAUbebgSVicgiIPhUhoG8Pyz5Nc2cPpkjz1Wk8vd9AGWr3jAFjZ1dJccSllwQwRxq_NGBW17-DQ5rMl7R-qrw-QJ5-1UfwentfHa7fokNWWGF6OwR8age9akBBInXalrGu_TrGZCU-2jBJv1LRMNjEtIZm8XlEWVZIGTaLbV0qhG-8J-E5Q4eWAu9c" alt="Modern RowingBike" class="w-full h-auto rounded border border-outline-variant shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+
+<div class="absolute bottom-4 right-4 bg-surface-container/90 px-3 py-1 border border-outline-variant rounded">
+<span class="font-label-technical text-label-technical text-primary">MODERN ERA</span>
+</div>
+</div>
+</div>
+<div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="border-l-2 border-primary/30 pl-4">
+<h3 class="font-label-technical text-label-technical text-primary mb-2">1898</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Many concepts and designs laid the groundwork for integrating rowing motion into cycling.</p>
+</div>
+<div class="border-l-2 border-primary/30 pl-4">
+<h3 class="font-label-technical text-label-technical text-primary mb-2">30+ YEARS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Relentless development, refinement, and real-world testing to perfect the mechanism.</p>
+</div>
+<div class="border-l-2 border-primary pl-4">
+<h3 class="font-label-technical text-label-technical text-primary mb-2">TODAY</h3>
+<p class="font-body-md text-body-md text-on-surface">The RowingBike 209. The pinnacle of human-powered, full-body transportation.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Derk Thijs -->
+<section class="py-24 bg-surface-container-low border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row gap-gutter justify-between items-center">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">30+ YEARS OF VISION.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Driven by a singular pursuit of engineering elegance and functional fitness, the RowingBike represents decades of meticulous iteration.</p>
+</div>
+<div class="flex gap-8 mt-10 md:mt-0">
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-primary">30+</div>
+<div class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-widest mt-2">Years of R&amp;D</div>
+</div>
+<div class="text-center">
+<div class="font-display-lg text-display-lg text-primary">600+</div>
+<div class="font-label-technical text-label-technical text-on-surface-variant uppercase tracking-widest mt-2">Bikes Sold</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The 209 -->
+<section class="py-32 relative overflow-hidden" id="209">
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-surface-container-high/40 to-transparent -z-10"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface mb-4">THE 209.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">Precision engineered. Constructed for maximum power transfer and aerodynamic efficiency.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4 bg-surface-container p-4 rounded border border-outline-variant/30 metallic-edge">
+<span class="material-symbols-outlined text-primary">fitness_center</span>
+<div>
+<h4 class="font-label-technical text-label-technical text-on-surface">CARBON FRAME</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Lightweight, rigid, and responsive.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container p-4 rounded border border-outline-variant/30 metallic-edge">
+<span class="material-symbols-outlined text-primary">settings</span>
+<div>
+<h4 class="font-label-technical text-label-technical text-on-surface">50+ GEARS</h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">Continuous variable transmission for any terrain.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative mt-16 lg:mt-0">
+<img alt="" class="w-full h-auto rounded border border-outline-variant z-10 relative object-cover aspect-[4/3]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQQ5hDO4Av8hKHbeK6cNjAKY6utoZ6vh8UAAVvjCIWgetpVg0d8psbuYwdumDKb8ERXddF1E677J48i-gAa0rxlH4ynp8o3u8m2F-22lq6OUgEpKFNLua2mkgkWhI3dfQQkmCzN5p95Gq0PLeih4FBNaiNVqxzKewEFL7KPhJu1lOxfCtY5S8Rn0EqbiHa13k8W78tsLthM9VyzOrsNEpB8DUlureDLObzLtyc7L5jATK2v6_xikF6VhfdraUGtU08-EA">
+<div class="absolute -bottom-8 -left-8 w-64 h-64 border border-primary/20 rounded-full -z-0"></div>
+<div class="absolute -top-8 -right-8 w-32 h-32 border border-primary/20 rounded-full -z-0"></div>
+</div>
+</div>
+</section>
+<!-- The Experience -->
+<section class="py-24" id="experience">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">RIDE AT YOUR OWN PACE.</h2>
+</div>
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 relative h-[50vh] min-h-[400px] group">
+<img alt="" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABLI8YV2Z-qW22vbmrlEaEq46iy9n_LCJ1XoFm_7SH-mqHuY20L0T1Rhd-TCOIId7X7-zosTk_EKqYS8OM_gDbWLwW-G8okmXJKKpyX3zA9JKLzsqp4-WoiWfcUorZP6VL7rLSGYgP2O-VLSnnABPmLmIYfuAmcP30CHyW2Cnw5K2TiHyOmO9vIHIbxZShZQU0C3b3nGCnDmywc_--a5xA29DeYjdRsOSBg7mukMr8TPTXX2NUDBiPXGY2qdYElIvYCzo">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-title-md text-title-md text-on-surface">Leisurely Glide</h3>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative h-[50vh] min-h-[400px] group border-t md:border-t-0 md:border-l border-outline-variant/30">
+<img alt="" class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp3MevpZ9Nu_zQLmZaQPG1k9nNo8x0BPkXya-RC1422DBKLCEh7OPr3vhB5GPezy6IS1XaOaKGzHtN7nIOilPynNEuMf7qwn-DarvIgmVxoR9gjTqVZdaDCPMZGD9rjYTKNACErrhW8GcPL2TMh6MohjIIA5StZHZ_QyrgHGTe9rJj69wrjXK5g-lh3nklHE99Ni-expB4dZL61RztVlMoHdwYIk4eCaRm5WXQgdSZbiRKuHh05E-wPS-TRpYhSeUb26I">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-title-md text-title-md text-on-surface">Intensive Workout</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- No Water Required -->
+<section class="py-32 relative">
+<div class="absolute inset-0 z-0">
+<img alt="" class="w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsNGxZCbrxfz4S_sKnC2Fm-feVbu3o4uBzR-Dytq9wdmM_KzaBkvSNjcTP71_tERB56F0F2wlTV52DLAUaSRP8LtvHVU72JK4haVIPJ-PItJwrXIatxN-5gQl8jc_B4dIpNiDq0ypF-TFBL6XLqz-x4Pmj5jZEuDJIEhuwC4njJnwuuwIRktfcQrPWW6vDU9ZsBmKYPURPXgXbFHz-_P4EsiAlt1cVeGHaHDkjAgFPh--c5Rql7dSDjtoZSple1eC9ju0">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-on-surface max-w-2xl">NO WATER REQUIRED.</h2>
+</div>
+</section>
+<!-- More Than Cycling & Accessibility & Safety -->
+<section class="py-24 bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop space-y-32">
+<!-- More Than Cycling -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">MORE THAN JUST YOUR LEGS.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Engage your core, back, and arms. Distribute the effort across your entire body for a full, balanced workout while commuting or exploring.</p>
+</div>
+<div class="bg-surface-container border border-outline-variant/30 p-8 rounded metallic-edge">
+<div class="flex justify-between items-center border-b border-outline-variant/30 pb-4 mb-4">
+<span class="font-label-technical text-label-technical text-on-surface-variant">ORDINARY BIKE</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant">ROWINGBIKE</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface">Lower Body Only</span>
+<div class="w-1/2 h-1 bg-outline-variant/30 rounded overflow-hidden flex">
+<div class="w-full bg-outline-variant h-full"></div>
+<div class="w-0 bg-primary h-full"></div>
+</div>
+<span class="font-body-md text-body-md text-primary text-right">Full Body</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Accessibility -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center flex-row-reverse">
+<div class="order-2 md:order-1 bg-surface-container border border-outline-variant/30 p-8 rounded metallic-edge">
+
+<p class="font-body-md text-body-md text-on-surface-variant">The unique mechanics provide a viable solution for those with specific physical limitations, such as a one-leg propulsion approach.</p>
+</div>
+<div class="order-1 md:order-2">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">ANOTHER WAY TO MOVE.</h2>
+</div>
+</div>
+<!-- Safety -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">LOWER. STABLE. DIFFERENT.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A lower center of gravity increases stability and reduces aerodynamic drag, offering a safer, more grounded ride experience.</p>
+</div>
+<div class="relative">
+<img alt="" class="w-full h-auto rounded border border-outline-variant/30 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcR6FWFXpvpOQTcTc_IXS9wRHoUrF-VyxriqbqQeU1LENfMUmHN9k6Zeu_dZ9MXkhmtOH1g8W2-9i8zmANDJ5bfpsrcZ5KfEy65YAEFKxJaPAQJ-f-5UT21aBeLNixnTx03fG5mtsI4f3Nf86kE7Lm_JA2wSzB_GOPApPCZavJpbRaXAKH2SlrzH7Dli3a61FJNer_7EEAu13Dr5lFcbltLDABx79geFMfbM01Tebz-aDLT9JlUsHch0dQbOEwddMZQf8">
+<div class="absolute inset-0 bg-primary/5 mix-blend-overlay"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Commute -->
+<section class="py-32 relative border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-5 gap-gutter items-center">
+<div class="lg:col-span-2">
+<img alt="" class="w-full h-auto rounded border border-outline-variant p-2 bg-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfprZjR8jl7ouXn7FvHcfhbpBNnvOSvcg1r_vSvTjKRLQwxmrnSHUDP6JOZCiJqH0ghhQ4Bb57pKqSC2z6IuV2XNtVA0kQdN-O3p2HJMH1H_3RLsG74Ntq9yjH1l7CavdOYUsyrnlOpAGngtycNu2NNw6Sy5iUWyh4hY45OuIpFnF1d3x8Klq1zgi72lQXz-FlO1hiiK6wdImAYfKsOyuxDpso6jt7xNyZUQG8Du3kgzIbPXpcqeHv88x3Y2bckdjSTYk">
+</div>
+<div class="lg:col-span-3 lg:pl-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">35 KM. 15 MINUTES FASTER.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant italic mb-8 border-l-2 border-primary/50 pl-6">"My daily commute transformed from a chore into a training session. I arrive faster, sharper, and completely energized."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface text-sm">Daily Rider</div>
+<div class="font-label-technical text-label-technical text-on-surface-variant">Utrecht to Amsterdam</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community & CTA -->
+<section class="py-32 bg-surface-container-low text-center relative overflow-hidden" id="community">
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none">
+<div class="w-[800px] h-[800px] border border-primary rounded-full absolute -top-[400px] -left-[400px]"></div>
+<div class="w-[600px] h-[600px] border border-primary rounded-full absolute top-1/2 right-[-200px]"></div>
+</div>
+<div class="max-w-3xl mx-auto px-margin-mobile relative z-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">A COMMUNITY ON TWO WHEELS.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Join a global network of innovators and athletes. From the Netherlands to Korea, Costa Rica to Canada. 600+ bikes sold globally.</p>
+<div class="bg-surface p-8 md:p-12 border border-outline-variant/30 rounded metallic-edge mt-16" id="contact">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">COME AND EXPERIENCE THE ROWINGBIKE.</h3>
+<a class="inline-flex items-center gap-2 font-label-technical text-label-technical text-primary hover:text-white transition-colors duration-300" href="mailto:RowingBikePromotion@gmail.com">
+<span class="material-symbols-outlined">mail</span>
+                    RowingBikePromotion@gmail.com
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 py-16">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-8">
+<div>
+<div class="font-title-md text-body-lg text-on-surface uppercase tracking-widest mb-4">ROWINGBIKE</div>
+<p class="font-label-technical text-label-technical text-on-surface-variant opacity-80">© ROWINGBIKE PROMOTION. All rights reserved.<br>RowingBikePromotion@gmail.com</p>
+</div>
+<div class="flex flex-wrap gap-6">
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">PRIVACY POLICY</a>
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">TERMS OF SERVICE</a>
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">SHIPPING</a>
+<a class="font-label-technical text-label-technical text-on-surface-variant hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">WARRANTY</a>
+</div>
+</div>
+</footer>
+
+
+
+
+
+
+
+
+</body></html>
